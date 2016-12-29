@@ -16,7 +16,8 @@ namespace OutlookAccountGenerator
 
         protected void btnGenerate_Click(object sender, EventArgs e)
         {
-
+            btnGenerate.Enabled = false;
+            
         }
     }
 }
