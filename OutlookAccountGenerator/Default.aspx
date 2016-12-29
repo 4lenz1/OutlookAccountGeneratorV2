@@ -25,14 +25,15 @@
           <input required id="holdDate" type="date" name="holdDate">
           <%--<asp:Calendar ID="calendar" runat="server"></asp:Calendar>--%>
         <!-- Switch -->
-  <div class="switch">
+  <label class="switch">
     <label>
-      Off
-      <input type="checkbox">
+      Fixed Password
+ <input type="checkbox"  name='checkRandomPassword' ID="checkRandomPassword" runat="server" value="1"/>
       <span class="lever"></span>
-      On
+      Random Password
     </label>
-  </div>
+  </label>
+         
       </div>
                         
         <button ID="btnGenerate"  value="Submit" type="submit" class="waves-effect waves-light btn">Generate</button>

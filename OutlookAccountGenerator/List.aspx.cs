@@ -16,7 +16,15 @@ namespace OutlookAccountGenerator
         private int accountAmount;
         private string holdDate;
         private string[] accountName;
+        private bool randomPassword;
 
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         public void getPostValue()
         {
             List list = new List();
@@ -83,20 +91,37 @@ namespace OutlookAccountGenerator
             }
         }
 
+        public bool RandomPassword
+        {
+            get
+            {
+                return randomPassword;
+            }
+
+            set
+            {
+                randomPassword = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             List list = new List();
             Account account = new Account();
+
 
             // get post value from Default.aspx
             //getPostValue();
             list.applicantName = Request.Form["applicant"];
             list.accountAmount = Int32.Parse(Request.Form["amount"]);
             list.holdDate = Request.Form["holdDate"];
+            //  set true to 1 
+            list.randomPassword = Request.Form["checkRandomPassword"]  == "1" ;
 
             Response.Write("Account Amount" + list.accountAmount + "\n");
             Response.Write("Applicant Name" + list.applicantName + "\n");
             Response.Write("Hold Date" + list.holdDate + "\n");
+            Response.Write("Random Password:" + list.randomPassword + "\n");
 
             int accountRow =list.accountAmount ;
             int accountCell = 4;
@@ -119,12 +144,19 @@ namespace OutlookAccountGenerator
 
                             break;
                         case 1:
-                            tableCell.Text = "MS" + list.holdDate.Replace("-",string.Empty) + row.ToString("000") + "@outlook.com";
+                            tableCell.Text = "MS" + list.holdDate.Replace("-",string.Empty).Substring(1).Substring(1) + row.ToString("000") + "@outlook.com";
 
                             break;
                         case 2:
-                            tableCell.Text = list.holdDate.Replace("-", string.Empty);
-                           // tableCell.Controls.Add(new LiteralControl("Password"));
+                            if (list.randomPassword)
+                            {
+                                tableCell.Text = RandomString(8);
+                            }
+                            else
+                            {
+                                tableCell.Text = list.holdDate.Replace("-", string.Empty);
+                                // tableCell.Controls.Add(new LiteralControl("Password"));
+                            }
                             break;
                         case 3:
                             tableCell.Text = list.applicantName;
@@ -139,13 +171,23 @@ namespace OutlookAccountGenerator
 
         protected void btnGetExcel_Click(object sender, EventArgs e)
         {
-            Response.ContentType = "application/x-msexcel";
-            Response.AddHeader("Content-Disposition", "attachment;filename = ExcelFile.xls");
-            Response.ContentEncoding = Encoding.UTF8;
-            StringWriter tw = new StringWriter();
-            HtmlTextWriter hw = new HtmlTextWriter(tw);
+            //Response.ContentType = "application/x-msexcel";
+            //Response.AddHeader("Content-Disposition", "attachment;filename = ExcelFile.xls");
+            //Response.ContentEncoding = Encoding.UTF8;
+            //StringWriter tw = new StringWriter();
+            //HtmlTextWriter hw = new HtmlTextWriter(tw);
+            //tableAccount.RenderControl(hw);
+            //Response.Write(tw.ToString());
+            //Response.End();
+
+
+            Response.Clear();
+            Response.AddHeader("content-disposition", "attachment;filename=myexcel.xls");
+            Response.ContentType = "application/ms-excel";
+            System.IO.StringWriter sw = new System.IO.StringWriter();
+            System.Web.UI.HtmlTextWriter hw = new HtmlTextWriter(sw);
             tableAccount.RenderControl(hw);
-            Response.Write(tw.ToString());
+            Response.Write(sw.ToString());
             Response.End();
         }
     }
