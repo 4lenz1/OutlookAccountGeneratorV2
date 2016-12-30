@@ -144,7 +144,7 @@ namespace OutlookAccountGenerator
 
                             break;
                         case 1:
-                            tableCell.Text = "MS" + list.holdDate.Replace("-",string.Empty).Substring(1).Substring(1) + row.ToString("000") + "@outlook.com";
+                            tableCell.Text = "MS" + list.holdDate.Replace("-",string.Empty) + row.ToString("000") + "@outlook.com";
 
                             break;
                         case 2:
@@ -154,7 +154,7 @@ namespace OutlookAccountGenerator
                             }
                             else
                             {
-                                tableCell.Text = list.holdDate.Replace("-", string.Empty);
+                                tableCell.Text = "MS" + list.holdDate.Replace("-",string.Empty);
                                 // tableCell.Controls.Add(new LiteralControl("Password"));
                             }
                             break;
@@ -168,27 +168,30 @@ namespace OutlookAccountGenerator
                 tableAccount.Rows.Add(tableRow);
             }
         }
-
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //'XX'型別 必須置於有 runat=server 的表單標記之中
+        }
         protected void btnGetExcel_Click(object sender, EventArgs e)
         {
-            //Response.ContentType = "application/x-msexcel";
-            //Response.AddHeader("Content-Disposition", "attachment;filename = ExcelFile.xls");
-            //Response.ContentEncoding = Encoding.UTF8;
-            //StringWriter tw = new StringWriter();
-            //HtmlTextWriter hw = new HtmlTextWriter(tw);
-            //tableAccount.RenderControl(hw);
-            //Response.Write(tw.ToString());
-            //Response.End();
-
-
-            Response.Clear();
-            Response.AddHeader("content-disposition", "attachment;filename=myexcel.xls");
-            Response.ContentType = "application/ms-excel";
-            System.IO.StringWriter sw = new System.IO.StringWriter();
-            System.Web.UI.HtmlTextWriter hw = new HtmlTextWriter(sw);
+            Response.ContentType = "application/x-msexcel";
+            Response.AddHeader("Content-Disposition", "attachment;filename = ExcelFile.xls");
+            Response.ContentEncoding = Encoding.UTF8;
+            StringWriter tw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(tw);
             tableAccount.RenderControl(hw);
-            Response.Write(sw.ToString());
+            Response.Write(tw.ToString());
             Response.End();
+
+
+            //Response.Clear();
+            //Response.AddHeader("content-disposition", "attachment;filename=myexcel.xls");
+            //Response.ContentType = "application/ms-excel";
+            //System.IO.StringWriter sw = new System.IO.StringWriter();
+            //System.Web.UI.HtmlTextWriter hw = new HtmlTextWriter(sw);
+            //tableAccount.RenderControl(hw);
+            //Response.Write(sw.ToString());
+            //Response.End();
         }
     }
 }

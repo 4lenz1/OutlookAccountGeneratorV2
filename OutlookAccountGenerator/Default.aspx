@@ -11,7 +11,7 @@
     <title>Outlook Account Generator</title>
     </head>
     <body>
-        <form id="form1" runat="server" action="List.aspx">
+        <form id="form1" runat="server" action="List.aspx" margin="0" auto="">
         <div class="row container">
       <div class="row">
         <div class="input-field col s6">
@@ -22,7 +22,7 @@
           <input required id="Amount" name="amount" type="text" class="validate">
           <label for="amount">Amount</label>
         </div>
-          <input required id="holdDate" type="date" name="holdDate">
+          <input required id="holdDate" type="date" name="holdDate" class="datepicker">
           <%--<asp:Calendar ID="calendar" runat="server"></asp:Calendar>--%>
         <!-- Switch -->
   <label class="switch">
@@ -47,10 +47,20 @@
       <script type="text/javascript" src="js/materialize.min.js"></script>
 
         </form>
+
+
         <%--<script>
             function showProgressBar() {
                 document.getElementById('progressbar').style.visibility = 'trueinherit';
             }
         </script>--%>
+
+        <script>
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format: 'yy-dd-mm'
+  });
+        </script>
     </body>
   </html>

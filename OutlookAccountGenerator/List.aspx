@@ -15,9 +15,8 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server" class="container">
-                        
-        <asp:Button id="btnGetExcel"  class="waves-effect waves-light btn" runat="server" Text="Get Excel File" OnClick="btnGetExcel_Click"></asp:Button>
+       <div class="container">
+                   <asp:Button id="btnGetExcel"  class="waves-effect waves-light btn" runat="server" Text="Get Excel File" OnClick="btnGetExcel_Click"></asp:Button>
         <asp:Table ID="tableAccount" class="striped" runat="server">
             <asp:TableHeaderRow id="Table1HeaderRow" 
             BackColor="LightBlue"
@@ -36,7 +35,7 @@
                 Text="Applicant" />
         </asp:TableHeaderRow>              
         </asp:Table>
-    </form>
+           </div>                 
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
