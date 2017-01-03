@@ -3,7 +3,8 @@
     <head>
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
+        <!-- custom css -->
+        <link href="style.css" rel="stylesheet" />
               <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
       <!--Let browser know website is optimized for mobile-->
@@ -55,12 +56,14 @@
             }
         </script>--%>
 
+       
         <script>
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year
     format: 'yy-dd-mm'
   });
+
         </script>
     </body>
   </html>

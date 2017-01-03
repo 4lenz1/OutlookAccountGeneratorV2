@@ -12,6 +12,9 @@ namespace OutlookAccountGenerator
 {
 	public partial class List : System.Web.UI.Page
 	{
+        StringBuilder StrHtmlGenerate = new StringBuilder();
+        StringBuilder StrExport = new StringBuilder();
+
         private string applicantName;
         private int accountAmount;
         private string holdDate;
@@ -21,7 +24,13 @@ namespace OutlookAccountGenerator
         private static Random random = new Random();
         public static string RandomString(int length)
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+        public static string RandomNumber(int length)
+        {
+            const string chars = "0123456789";
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
@@ -113,7 +122,11 @@ namespace OutlookAccountGenerator
             // get post value from Default.aspx
             //getPostValue();
             list.applicantName = Request.Form["applicant"];
-            list.accountAmount = Int32.Parse(Request.Form["amount"]);
+
+            if (!string.IsNullOrEmpty(Request.Form["amount"]))
+            {
+                list.accountAmount = Int32.Parse(Request.Form["amount"]);
+            }
             list.holdDate = Request.Form["holdDate"];
             //  set true to 1 
             list.randomPassword = Request.Form["checkRandomPassword"]  == "1" ;
@@ -150,7 +163,7 @@ namespace OutlookAccountGenerator
                         case 2:
                             if (list.randomPassword)
                             {
-                                tableCell.Text = RandomString(8);
+                                tableCell.Text = RandomString(4) + RandomNumber(4); 
                             }
                             else
                             {
@@ -174,6 +187,18 @@ namespace OutlookAccountGenerator
         }
         protected void btnGetExcel_Click(object sender, EventArgs e)
         {
+
+            //Response.Clear();
+            //Response.AddHeader("content-disposition", "attachment;filename=myexcel.xls");
+            //Response.ContentType = "application/ms-excel";
+            //System.IO.StringWriter sw = new System.IO.StringWriter();
+            //System.Web.UI.HtmlTextWriter hw = new HtmlTextWriter(sw);
+            //tableAccount.RenderControl(hw);
+            //Response.Write(sw.ToString());
+            //Response.End()
+
+           
+
             Response.ContentType = "application/x-msexcel";
             Response.AddHeader("Content-Disposition", "attachment;filename = ExcelFile.xls");
             Response.ContentEncoding = Encoding.UTF8;
@@ -184,14 +209,48 @@ namespace OutlookAccountGenerator
             Response.End();
 
 
-            //Response.Clear();
-            //Response.AddHeader("content-disposition", "attachment;filename=myexcel.xls");
-            //Response.ContentType = "application/ms-excel";
-            //System.IO.StringWriter sw = new System.IO.StringWriter();
-            //System.Web.UI.HtmlTextWriter hw = new HtmlTextWriter(sw);
-            //tableAccount.RenderControl(hw);
-            //Response.Write(sw.ToString());
+
+
+
+            //StrExport.Append(@"<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'><head><title>Time</title>");
+            //StrExport.Append(@"<body lang=EN-US style='mso-element:header' id=h1><span style='mso--code:DATE'></span><div class=Section1>");
+            //StrExport.Append("<DIV  style='font-size:12px;'>");
+            ////StrExport.Append(dvInfo.InnerHtml);
+            //StrExport.Append("</div></body></html>");
+            //string strFile = "StudentInformations_CODESCRATCHER.xls";
+            //string strcontentType = "application/excel";
+            //Response.ClearContent();
+            //Response.ClearHeaders();
+            //Response.BufferOutput = true;
+            //Response.ContentType = strcontentType;
+            //Response.AddHeader("Content-Disposition", "attachment; filename=" + strFile);
+            //Response.Write(StrExport.ToString());
+            //Response.Flush();
+            //Response.Close();
             //Response.End();
         }
+
+
+
+
+        //Response.ContentType = "application/x-msexcel";
+        //    Response.AddHeader("Content-Disposition", "attachment;filename = ExcelFile.xls");
+        //    Response.ContentEncoding = Encoding.UTF8;
+        //    StringWriter tw = new StringWriter();
+        //    HtmlTextWriter hw = new HtmlTextWriter(tw);
+        //    tableAccount.RenderControl(hw);
+        //    Response.Write(tw.ToString());
+        //    Response.End();
+
+
+        //Response.Clear();
+        //Response.AddHeader("content-disposition", "attachment;filename=myexcel.xls");
+        //Response.ContentType = "application/ms-excel";
+        //System.IO.StringWriter sw = new System.IO.StringWriter();
+        //System.Web.UI.HtmlTextWriter hw = new HtmlTextWriter(sw);
+        //tableAccount.RenderControl(hw);
+        //Response.Write(sw.ToString());
+        //Response.End();
+        //}
     }
 }
