@@ -99,6 +99,7 @@
   <ItemGroup>
     <Content Include="List.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\style.css" />
     <Content Include="Service Capabilities\azurepassblobAzureStorage\ConnectedService.json" />
     <Content Include="fonts\roboto\Roboto-Bold.eot" />
     <Content Include="fonts\roboto\Roboto-Bold.ttf" />

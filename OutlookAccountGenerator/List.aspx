@@ -8,14 +8,14 @@
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
+    <link href="Scripts/style.css" rel="stylesheet" />
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 </head>
 <body>
-     <form id="formAccount" runat="server" class="container">
+     <form  id="formAccount" runat="server" class=" container">
        <div>
           <%--<div id="dvInfo" runat="server"><br />--%> 
                    <asp:Button id="btnGetExcel" action="#" class="waves-effect waves-light btn" runat="server" Text="Get Excel File" OnClick="btnGetExcel_Click"></asp:Button>

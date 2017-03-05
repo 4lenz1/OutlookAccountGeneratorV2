@@ -10,79 +10,9 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Outlook Account Generator</title>
-
+        <link href="Scripts/style.css" rel="stylesheet" />
         <style>
-            .element{
-                background-color: #2d2d30;
-            }
-            .page-footer{
-                background-color:#2d2d30 !important; 
-            }
-            .content{
-                background-color:#1e1e1e;
-            }
-            .switch label input[type=checkbox]:checked+.lever:after {
-    background-color: #ca5100;
-    left: 24px;
-}
-            .switch label input[type=checkbox]:checked+.lever {
-    background-color: #e45b00;
-}
-            .vs-btn-theme{
-                background-color:#ca5100;
-               
-            }
-                .waves-effect .waves-light {
-     /* The alpha value allows the text and background color
-     of the button to still show through. */
-      background-color: #2d2d30;
-    }
-    .btn:hover, .btn-large:hover {
-    background-color: #ff6600   ;
-}
-    .picker__date-display {
-    background-color: #e45b00;
-}
-    .picker__weekday-display{
-            background-color: #e45b00;
-    }
-    .picker__close, .picker__today {
-    color: #e45b00;
-}
-    .picker__box{
-                        background-color:#1e1e1e;
-    }
-    .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
-    background-color: #e45b00;
-    color: #ffffff;
-}
-    .picker__nav--prev:hover, .picker__nav--next:hover {
-    background: #ff6600;
-}
 
-    input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
-    border-bottom: 1px solid #ff6600;
-    box-shadow: 0 1px 0 0 #ff6600;
-}
-input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #9e9e9e;
-    border-radius: 0;
-    outline: none;
-    height: 3rem;
-    width: 100%;
-    font-size: 1rem;
-    margin: 0 0 20px 0;
-    padding: 0;
-    box-shadow: none;
-    box-sizing: content-box;
-    transition: all 0.3s;
-    color:#ff6600;
-}
-input[type=text]:focus:not([readonly]){
-    border-bottom: #ff6600;
-}
         </style>
     </head>
     <body class="content">
@@ -105,25 +35,23 @@ input[type=text]:focus:not([readonly]){
           <input required id="Amount" name="amount" type="text" class="validate">
           <label for="amount">Amount</label>
         </div>
-          <input required id="holdDate" type="date" name="holdDate" class="datepicker">
+          <div class="input-field col s12">
           <label for="holdDate">Date</label>
-          
-          <%--<asp:Calendar ID="calendar" runat="server"></asp:Calendar>--%>
-        <!-- Switch -->
+          <input required id="holdDate" type="date" name="holdDate" class="datepicker">
+         </div>
+
   <label class="switch">
     <label>
-      Fixed Password
- <input class="vs-btn-theme" type="checkbox"  name='checkRandomPassword' ID="checkRandomPassword" runat="server" value="1"/>
+    Random Password
+ <input class="vs-btn-theme" type="checkbox"  name='checkRandomPassword' ID="checkRandomPassword"  runat="server" value="1"/>
       <span class="lever"></span>
-      Random Password
     </label>
   </label>
-         
-      </div>
-                        
+          <div class="input-field col s12">
         <button ID="btnGenerate"  value="Submit" type="submit" class="vs-btn-theme  waves-effect waves-orange btn">Generate</button>
             <div style="visibility:hidden"  ID="progressbar" class="progress">
-      <div class="indeterminate"></div>
+                </div>
+                            </div>
   </div>
   </div>
 
@@ -136,24 +64,22 @@ input[type=text]:focus:not([readonly]){
           <div class="container element">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">Think More, Work Less</h5>
+                <p class="grey-text text-lighten-4">Don't Enjoy Your Work.</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Outlook Register</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Outlook Account Generator</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Azure Pass Register</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright element">
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="container ">
+            fallenzone.io
             </div>
           </div>
         </footer>
