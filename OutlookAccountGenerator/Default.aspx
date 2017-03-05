@@ -32,7 +32,7 @@
           <label for="applicant">Applicant</label>
         </div>
         <div class="input-field col s12">
-          <input required id="Amount" name="amount" type="text" class="validate">
+          <input type="number" required id="Amount" name="amount"  class="validate">
           <label for="amount">Amount</label>
         </div>
           <div class="input-field col s12">
