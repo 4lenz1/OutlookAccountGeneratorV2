@@ -5,13 +5,10 @@
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <!-- custom css -->
-        <link href="style.css" rel="stylesheet" />
-              <!--Import Google Icon Font-->
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="Scripts/style.css" rel="stylesheet" />
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Outlook Account Generator</title>
-        <link href="Scripts/style.css" rel="stylesheet" />
         <style>
             html{
    font-family:Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
@@ -31,7 +28,7 @@
   </nav>
         <form class="content" name="form" id="form1" runat="server" method="post" action="List.aspx" margin="0" onsubmit="return validateForm()" auto="">
         <div class="row container">
-      <div class="row">
+     
         <div class="input-field col s12">
           <input required id="Applicant" type="text" name="applicant" class="validate">
           <label for="applicant">Applicant</label>
@@ -55,14 +52,7 @@
           <div class="input-field col s12 m12">
         <button ID="btnGenerate"  value="Submit" type="submit"  class="vs-btn-theme  waves-effect waves-orange btn">Generate</button>
                             </div>
-
   </div>
-  </div>
-
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-
         </form>
                 <footer class="page-footer element">
           <div class="container element">
@@ -87,29 +77,10 @@
             </div>
           </div>
         </footer>
-            
-
-
-        <%--<script>
-            function showProgressBar() {
-                document.getElementById('progressbar').style.visibility = 'trueinherit';
-            }
-        </script>--%>
-
-       
-        <script>
-            $('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15, // Creates a dropdown of 15 years to control year
-                format: 'yy-dd-mm'
-            });
-            function validateForm() {
-                var x = document.getElementById('holdDate').value;
-                if (x == "") {
-                    alert("Date must be filled out");
-                    return false;
-                }
-            }
-        </script>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+        <%-- import custom js --%>
+        <script src="Scripts/JavaScript.js"></script>
     </body>
   </html>
