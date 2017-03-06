@@ -1,6 +1,7 @@
 ﻿ <!DOCTYPE html>
   <html>
     <head>
+        
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <!-- custom css -->
@@ -12,13 +13,16 @@
     <title>Outlook Account Generator</title>
         <link href="Scripts/style.css" rel="stylesheet" />
         <style>
+            html{
+   font-family:Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
 
+            }
         </style>
     </head>
     <body class="content">
         <nav class="element">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Outlook Account Generator </a>
+      <a href="#"  class="brand-logo">Outlook Account Generator </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="fallenzone.io">HOME</a></li>
       </ul>
@@ -47,7 +51,7 @@
       <span class="lever"></span>
     </label>
   </label>
-          <div class="input-field col s12">
+          <div class="input-field col s12 m12">
         <button ID="btnGenerate"  value="Submit" type="submit" class="vs-btn-theme  waves-effect waves-orange btn">Generate</button>
             <div style="visibility:hidden"  ID="progressbar" class="progress">
                 </div>
@@ -78,7 +82,7 @@
             </div>
           </div>
           <div class="footer-copyright element">
-            <div class="container ">
+            <div class="container s12 m12 l12 ">
             fallenzone.io
             </div>
           </div>
