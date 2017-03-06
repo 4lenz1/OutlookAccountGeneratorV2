@@ -27,7 +27,7 @@
             </ul>
         </div>
     </nav>
-    <form class="content" name="form" id="form1" runat="server" method="get" action="List.aspx" margin="0" onsubmit="return validateForm()" auto="">
+    <form class="content" name="form" id="form1" runat="server" method="get" action="List.aspx" margin="0" onsubmit="return validateForm()">
         <div class="row container">
 
             <div class="input-field col s12">
@@ -51,7 +51,7 @@
                 </label>
             </label>
             <div class="input-field col s12 m12">
-                <button ID="btnGenerate" value="Submit" type="submit" class="vs-btn-theme  waves-effect waves-orange btn">Generate</button>
+                <button ID="btnGenerate" style="width:100%;border-radius:0;" value="Submit" type="submit" class="vs-btn-theme  waves-effect waves-orange btn">Generate</button>
             </div>
         </div>
     </form>

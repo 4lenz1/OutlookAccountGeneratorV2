@@ -124,7 +124,7 @@ namespace OutlookAccountGenerator
             HttpResponse httpResponse = Response;
             httpResponse.Clear();
             httpResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            httpResponse.AddHeader("content-disposition", "attachment;filename=\"HelloWorld.xlsx\"");
+            httpResponse.AddHeader("content-disposition", $"attachment;filename=\"AzurePass_{accountinfo.ApplicantName}_{accountinfo.HoldDate}_AutoGen.xlsx\"");
 
             // Flush the workbook to the Response.OutputStream
             using (MemoryStream memoryStream = new MemoryStream())
