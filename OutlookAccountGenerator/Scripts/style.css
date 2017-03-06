@@ -7,9 +7,23 @@
     border-bottom: 1px solid #ff6600;
     box-shadow: 0 1px 0 0 #ff6600;
 }
-
+.input-field input[type=number]:focus {
+    border-bottom: 1px solid #ff6600;
+    box-shadow: 0 1px 0 0 #ff6600;
+}
+.input-field input[type=date]:focus {
+    border-bottom: 1px solid #ff6600;
+    box-shadow: 0 1px 0 0 #ff6600;
+}
+/* label focus color */
+.input-field input[type=date]:focus + label {
+    color: #ca5100;
+}
     /* label focus color */
     .input-field input[type=text]:focus + label {
+        color: #ca5100;
+    }
+    .input-field input[type=number]:focus + label {
         color: #ca5100;
     }
 

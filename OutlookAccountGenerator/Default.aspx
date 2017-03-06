@@ -18,6 +18,7 @@
 
             }
         </style>
+
     </head>
     <body class="content">
         <nav class="element">
@@ -28,7 +29,7 @@
       </ul>
     </div>
   </nav>
-        <form class="content" id="form1" runat="server" action="List.aspx" margin="0" auto="">
+        <form class="content" name="form" id="form1" runat="server" method="post" action="List.aspx" margin="0" onsubmit="return validateForm()" auto="">
         <div class="row container">
       <div class="row">
         <div class="input-field col s12">
@@ -52,10 +53,9 @@
     </label>
   </label>
           <div class="input-field col s12 m12">
-        <button ID="btnGenerate"  value="Submit" type="submit" class="vs-btn-theme  waves-effect waves-orange btn">Generate</button>
-            <div style="visibility:hidden"  ID="progressbar" class="progress">
-                </div>
+        <button ID="btnGenerate"  value="Submit" type="submit"  class="vs-btn-theme  waves-effect waves-orange btn">Generate</button>
                             </div>
+
   </div>
   </div>
 
@@ -98,12 +98,18 @@
 
        
         <script>
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year
-    format: 'yy-dd-mm'
-  });
-
+            $('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15, // Creates a dropdown of 15 years to control year
+                format: 'yy-dd-mm'
+            });
+            function validateForm() {
+                var x = document.getElementById('holdDate').value;
+                if (x == "") {
+                    alert("Date must be filled out");
+                    return false;
+                }
+            }
         </script>
     </body>
   </html>
