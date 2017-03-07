@@ -11,8 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Outlook Account Generator</title>
     <style>
-        html {
+        html {   
             font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
+        }
+        .page-footer{
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;  
         }
     </style>
 
@@ -60,7 +66,7 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Think More, Work Less</h5>
-                    <p class="grey-text text-lighten-4">Don't Enjoy Your Work Forever.</p>
+                    <p class="grey-text text-lighten-4">Don't Enjoy Your Work.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>

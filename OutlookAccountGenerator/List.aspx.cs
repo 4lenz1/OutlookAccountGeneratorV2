@@ -76,12 +76,10 @@ namespace OutlookAccountGenerator
                             else
                             {
                                 tableCell.Text = "MS" + accountinfo.HoldDate.Replace("-", string.Empty);
-                                // tableCell.Controls.Add(new LiteralControl("Password"));
                             }
                             break;
                         case 3:
                             tableCell.Text = accountinfo.ApplicantName;
-                            //tableCell.Controls.Add(new LiteralControl(applicant));
                             break;
                     }
                     tableRow.Cells.Add(tableCell);
@@ -93,8 +91,8 @@ namespace OutlookAccountGenerator
         public override void VerifyRenderingInServerForm(Control control)
         {
             //'XX'型別 必須置於有 runat=server 的表單標記之中
-        }
-        protected void btnGetExcel_Click(object sender, EventArgs e)
+    }
+        protected void BtnGetExcel_Click(object sender, EventArgs e)
         {
             var wb = new XLWorkbook();
             var ws = wb.Worksheets.Add("Account");
@@ -108,7 +106,6 @@ namespace OutlookAccountGenerator
             {
                 //Index 
                 ws.Cell($"A{(index + 2).ToString()}").Value = (index + 1).ToString();
-                //ws.Cell("B" + index).Value = "MS" + list.holdDate.Replace("-", string.Empty) + index.ToString("000") + "@outlook.com";
                 ws.Cell($"B" + (index + 2).ToString()).Value = "MS" + accountinfo.HoldDate.Replace("-", string.Empty) + (index + 1).ToString("000") + "@outlook.com"; ;
 
                 ws.Cell($"C" + (index + 2).ToString()).Value =
@@ -130,7 +127,6 @@ namespace OutlookAccountGenerator
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 wb.SaveAs(memoryStream);
-                //workbook.SaveAs(memoryStream);
                 memoryStream.WriteTo(httpResponse.OutputStream);
                 memoryStream.Close();
             }

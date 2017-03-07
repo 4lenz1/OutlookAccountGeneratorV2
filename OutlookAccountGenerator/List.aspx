@@ -24,6 +24,7 @@
 /*color for font */
             color:#9e9e9e;
         }
+
     </style>
 </head>
 <body>
@@ -39,7 +40,7 @@
          </div>
 
         <form  id="formAccount" runat="server" class="  content">
-            <asp:Button style="width:100%; border-radius:0;" id="btnGetExcel"  class="sticky vs-btn-theme  waves-effect waves-orange btn" runat="server" Text="Get Excel File" OnClick="btnGetExcel_Click"></asp:Button>
+            <asp:Button Width="100%" style="border-radius:0;" id="btnGetExcel"  class="sticky vs-btn-theme  waves-effect waves-orange btn" runat="server" Text="Download Excel File" OnClick="BtnGetExcel_Click"></asp:Button>
     
        <div class="container">
                    
@@ -67,9 +68,8 @@
         </asp:TableHeaderRow>              
         </asp:Table>
                </div>
-           <%--</div>--%> 
          </form>                
-     <footer class="page-footer element">
+     <footer class="page-footer element footer">
         <div class="container element">
             <div class="row">
                 <div class="col l6 s12">
@@ -91,7 +91,7 @@
         </div>
         <div class="footer-copyright element">
             <div class="container s12 m12 l12 ">
-                fallenzone.io
+                ping@fallenzone.io
             </div>
         </div>
     </footer>

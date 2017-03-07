@@ -2,6 +2,14 @@
     font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
 }
 
+//let footer stick content bottom
+.page-footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+
 /* label underline focus color */
 .input-field input[type=text]:focus {
     border-bottom: 1px solid #ff6600;
